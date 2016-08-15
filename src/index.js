@@ -23,13 +23,18 @@ mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost:27017/demo'); // 
 mongoose.connection.on('error', function() {
   console.log('MongoDB Connection Error. Please make sure that MongoDB is running.');
   process.exit(1);
-});
+}); 
 
 /** 
  * Configure app
  */
 let app = express(); // Creates an Express app
-app.set('port', process.env.PORT || 3000); // Set port to 3000 or the provided PORT variable
+app.set('port', process.env.PORT || 8080); // Set port to 3000 or the provided PORT variable
+app.use(function(req, res, next) { // CORS
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.use(logger('dev')); // Log requests to the console
 app.use(bodyParser.json()); // Parse JSON data and put it into an object which we can access
 app.use(methodOverride()); // Allow PUT/DELETE
