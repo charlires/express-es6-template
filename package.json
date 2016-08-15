@@ -1,0 +1,29 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -w src --exec \"babel-node src --presets es2015-node5,stage-0\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Carlos Andonaegui <charlires@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "1.15.0",
+    "bootstrap": "3.3.6",
+    "es6-promise": "3.1.2",
+    "es6-shim": "0.35.0",
+    "express": "4.13.4",
+    "method-override": "2.3.5",
+    "mongoose": "^4.4.17",
+    "morgan": "1.7.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "nodemon": "^1.9.2",
+    "babel-preset-es2015-node5": "^1.2.0",
+    "babel-preset-stage-0": "^6.5.0"
+  }
+}
