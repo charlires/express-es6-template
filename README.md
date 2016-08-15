@@ -7,6 +7,6 @@ rm -rf .git && git init && npm init
 npm install
 
 # Start development live-reload server
-`npm start`
+npm start
 
 Make sure you have mongodb running 
