@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("charlires/express-es6-template:1.0${env.BUILD_NUMBER}")
+        app = docker.build("express-es6-template:1.0${env.BUILD_NUMBER}")
     }
 
     stage('Test image') {
@@ -28,7 +28,7 @@ node {
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+        docker.withRegistry('charlires', 'docker-hub-credentials') {
             app.push()
             app.push("latest")
         }
