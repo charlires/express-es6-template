@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("charlires/hellonode")
+        app = docker.build("charlires/hellonode:1.0.1")
     }
 
     stage('Test image') {
@@ -29,6 +29,5 @@ node {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
         app.push()
-        app.push("latest")
     }
 }
