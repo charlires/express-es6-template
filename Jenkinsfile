@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("express-es6-template:1.0.5")
+        app = docker.build("charlires/express-es6-template:1.0.5")
     }
 
     stage('Test image') {
