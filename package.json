@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -w src --exec \"babel-node src --presets es2015-node5,stage-0\"",
+    "start": "nodemon -w . --exec \"babel-node . --presets es2015-node5,stage-0\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Carlos Andonaegui <charlires@gmail.com>",
@@ -15,7 +15,8 @@
     "es6-promise": "3.1.2",
     "es6-shim": "0.35.0",
     "express": "4.13.4",
-    "method-override": "2.3.5",
+    "method-override": "2.3.5",    
+    "mongoose": "4.4.17",
     "morgan": "1.7.0"
   },
   "devDependencies": {

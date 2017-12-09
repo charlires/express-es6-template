@@ -1,8 +1,13 @@
-# use a node base image
-FROM node:7-onbuild
+FROM node:latest
 
-# set maintainer
-LABEL maintainer "charlires@gmail.com"
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY package.json /usr/src/app/
+RUN npm install
+
+COPY . /usr/src/app
+
+ENV PORT 8010
 
 # set a health check
 HEALTHCHECK --interval=5s \
@@ -11,3 +16,5 @@ HEALTHCHECK --interval=5s \
 
 # tell docker what port to expose
 EXPOSE 8010
+
+CMD [ "npm", "start" ]
