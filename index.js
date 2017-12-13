@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGO_URL || 'mongodb://mongodb:27017/demo'); // Co
 mongoose.connection.on('error', function() {
   console.log('MongoDB Connection Error. Please make sure that MongoDB is running.');
   process.exit(1);
-}); 
+});
 
 /**
  * Configure app
@@ -49,7 +49,9 @@ app.get('/healthz', (req, resp) => {
 });
 
 app.get('/todos', mainController.getAll);
+app.get('/todos/:id', mainController.getAll);
 app.post('/todos', mainController.postNew);
+app.delete('/todos/:id', mainController.deleteNew);
 /**
  * Start app
  */

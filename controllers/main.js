@@ -7,9 +7,20 @@ export default {
       res.json(todos);
     })
   },
+  findOne: (req, res) => {
+    Todo.findOne({_id: req.params.id}).then(todo => {
+      res.json(todo);
+    })
+  },
   postNew: (req, res) => {
     // This creates a new todo using POSTed data (in req.body)
     Todo.create(req.body).then(todo => {
+      res.json(todo);
+    });
+  },
+  deleteNew: (req, res) => {
+    // This creates a new todo using POSTed data (in req.body)
+    Todo.remove({_id: req.params.id}).then(todo => {
       res.json(todo);
     });
   }
